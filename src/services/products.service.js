@@ -1,6 +1,6 @@
 const productsModel = require('../models/products.model');
 const { validateId } = require('./validations/validationsValues');
-// , validateNewProduct
+
 const findAll = async () => {
   const products = await productsModel.findAll();
   if (products) {
@@ -21,19 +21,15 @@ const findById = async (id) => {
 };
 
 const insertProduct = async (name) => {
-  // const { error } = addProductSchema.validate(name);
-  // if (error) {
-  //   return { type: 'INPUT VALUE', message: error.message };
-  // }
-  // return { type: null, message: '' };
-  // const error = validateNewProduct(name);
-  // if (error.type) {
-  //   return error;
-  // }
+  if (!name) {
+    return { error: { type: 400, message: '"name" is required' } };
+  }
+  if (name.length < 5) {
+    return { error: { type: 422, message: '"name" length must be at least 5 characters long' } };
+}
 
   const newProductId = await productsModel.insertProduct(name);
-  // const newProduct = await productsModel.findById(newProductId);
-  return { type: true, message: newProductId };
+  return newProductId;
 };
 
 module.exports = {

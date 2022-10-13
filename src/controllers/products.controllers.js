@@ -19,10 +19,11 @@ const findById = async (req, res) => {
 
 const insertProduct = async (req, res) => {
   const { name } = req.body;
-  const { type, message } = await services.insertProduct(name);
-  if (type) {
-    return res.status(201).json(message);
+  const product = await services.insertProduct(name);
+  if (product.error) {
+    return res.status(product.error.type).json({ message: product.error.message });
   }
+  return res.status(201).json(product);
 };
 
 module.exports = {
