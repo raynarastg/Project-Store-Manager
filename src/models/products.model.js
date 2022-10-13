@@ -15,6 +15,8 @@ const findById = async (productId) => {
   return products;
 };
 
+// const insertProduct = 
+
 module.exports = {
   findAll,
   findById,
