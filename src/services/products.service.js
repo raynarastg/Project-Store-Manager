@@ -1,5 +1,4 @@
 const productsModel = require('../models/products.model');
-const { validateId } = require('./validations/validationsValues');
 
 const findAll = async () => {
   const products = await productsModel.findAll();
@@ -10,11 +9,6 @@ const findAll = async () => {
 };
 
 const findById = async (id) => {
-  const error = validateId(id);
-  if (error.type) {
-    return error;
-  }
-
   const productId = await productsModel.findById(id);
   if (productId) return { value: 200, message: productId };
   return { error: 404, message: 'Product not found' };
