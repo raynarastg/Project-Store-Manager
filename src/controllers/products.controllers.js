@@ -26,8 +26,27 @@ const insertProduct = async (req, res) => {
   return res.status(201).json(product);
 };
 
+const findAllSales = async (_req, res) => {
+  const sales = await services.findAllSales();
+  if (sales.error) {
+    return res.status(sales.error).json({ message: sales.message });
+  }
+  return res.status(sales.value).json(sales.message);
+};
+
+const findSalesById = async (req, res) => {
+  const { id } = req.params;
+  const saleId = await services.findSalesById(id);
+  if (saleId.error) {
+    return res.status(saleId.error).json({ message: saleId.message });
+  }
+  return res.status(saleId.value).json(saleId.message);
+};
+
 module.exports = {
   findAll,
   findById,
   insertProduct,
+  findAllSales,
+  findSalesById,
 };

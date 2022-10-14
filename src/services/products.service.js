@@ -20,14 +20,30 @@ const insertProduct = async (name) => {
   }
   if (name.length < 5) {
     return { error: { type: 422, message: '"name" length must be at least 5 characters long' } };
-}
+  }
 
   const newProductId = await productsModel.insertProduct(name);
   return newProductId;
+};
+
+const findAllSales = async () => {
+  const sales = await productsModel.findAllSales();
+  if (sales) {
+    return { value: 200, message: sales };
+  }
+  return { error: 404, message: 'Sale not found' };
+};
+
+const findSalesById = async (id) => {
+  const salesId = await productsModel.findSalesById(id);
+  if (salesId) return { value: 200, message: salesId };
+  return { error: 404, message: 'Sale not found' };
 };
 
 module.exports = {
   findAll,
   findById,
   insertProduct,
+  findAllSales,
+  findSalesById,
 };
