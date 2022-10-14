@@ -17,3 +17,18 @@ describe('Testes de unidade model de products', async function () {
     expect(result.message).to.equal('Product not found');
     });
 });
+
+describe('cadastrando novos produtos', async function () {
+  it('testa se o produto é inserido', async function () {
+    sinon.stub(productsModel, 'insertProduct').resolves(4);
+    sinon.stub(productsServices, 'findById').resolves({ id: 4, name: 'new product'});
+    const result = await productsServices.insertProduct({name: 'new product'});
+    expect(result.message).to.deep.equal( { id: 4, name: 'new product'});
+  });
+
+  it('testa se retorna um erro caso o produto não corresponda as necessidades', async function () {
+    sinon.stub(productsModel, 'findById').resolves(undefined);
+    const result = await productsServices.insertProduct({name: ''});
+    expect(result.message).to.be.equal('name is required');
+    });
+});

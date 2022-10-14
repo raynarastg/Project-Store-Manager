@@ -42,6 +42,12 @@ const findSalesById = async (req, res) => {
   }
   return res.status(saleId.value).json(saleId.message);
 };
+const updateProduct = async (req, res) => {
+  const { id } = req.params;
+  const { name } = req.body;
+  const { value, message } = await services.updateProduct(Number(id), name);
+  res.status(value).json(message);
+};
 
 module.exports = {
   findAll,
@@ -49,4 +55,5 @@ module.exports = {
   insertProduct,
   findAllSales,
   findSalesById,
+  updateProduct,
 };

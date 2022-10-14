@@ -11,4 +11,9 @@ describe('Testando camada Model', async function () {
     const result = await productsModel.findAll();
     expect(result).to.be.deep.equal(All);
   });
+  it('inserindo novo produto', async function () {
+    sinon.stub(connection, 'execute').resolves(4);
+    const result = await productsModel.insertProduct('new product');
+    expect(result).to.be.deep.equal(4);
+  });
 });

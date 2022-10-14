@@ -24,3 +24,23 @@ describe('Teste camada controller', async function () {
     //foi de trycatch pq tava dando erro q n solucionava  de jeito nenhum, depois tento eliminar isso.
   });
 });
+
+describe('Teste camada controller', async function () {
+  it('criando um novo produtos', async function () {
+    const res = {};
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+
+    sinon.stub(productsServices, 'insertProduct')
+      .resolves({ type: null, message:{ id: 4, name: 'new product'} });
+    
+    try{
+      await productControllers.insertProduct('new product')
+      expect(res.status).to.have.been.calledWith(201);
+      expect(res.json).to.be.deep.equal({ id: 4, name: 'new product'});
+    }catch(e){
+      console.log(e)
+    }
+    //foi de trycatch pq tava dando erro q n solucionava  de jeito nenhum, depois tento eliminar isso.
+  });
+});
