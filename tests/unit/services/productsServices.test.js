@@ -6,5 +6,5 @@ describe('Testes de unidade model de products', async function () {
   it('retorna um erro caso o produto não exista', async function () {
     sinon.stub(productsModel, 'findById').resolves(undefined);
      await productsServices.findById(1);
-    });
+  });
 });

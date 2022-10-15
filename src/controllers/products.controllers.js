@@ -50,6 +50,13 @@ const updateProduct = async (req, res) => {
   res.status(value).json(message);
 };
 
+const deleteProduct = async (req, res) => {
+  const { id } = req.params;
+  const { value, message } = await services.deleteProduct(Number(id));
+  if (!message) return res.status(value).end();
+  res.status(value).json(message);
+};
+
 module.exports = {
   findAll,
   findById,
@@ -57,4 +64,5 @@ module.exports = {
   findAllSales,
   findSalesById,
   updateProduct,
+  deleteProduct,
 };

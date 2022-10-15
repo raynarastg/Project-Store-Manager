@@ -54,6 +54,14 @@ const updateProduct = async (id, name) => {
   if (productUpdate) return { value: 200, message: productUpdate };
 };
 
+const deleteProduct = async (id) => {
+  const deleteProductId = await productsModel.deleteProduct(id);
+  if (deleteProductId.affectedRows === 0) {
+     return { value: 404, message: { message: 'Product not found' } };
+  }
+  return { value: 204 };
+};
+
 module.exports = {
   findAll,
   findById,
@@ -61,4 +69,5 @@ module.exports = {
   findAllSales,
   findSalesById,
   updateProduct,
+  deleteProduct,
 };
