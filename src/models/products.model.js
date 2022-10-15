@@ -43,13 +43,14 @@ const findSalesById = async (salesId) => {
   return sales;
 };
 
-// Daniel Rubens me auxiliou no selects dos sales
+// Daniel Rubens me auxiliou nas querys dos sales
 
 const updateProduct = async (id, name) => {
    await connection
     .execute('UPDATE StoreManager.products SET name = ? WHERE id = ?', [name, id]);
   return { id, name };
 };
+
 module.exports = {
   findAll,
   findById,

@@ -1,16 +1,5 @@
 const sinon = require('sinon');
 const productControllers = require('../../../src/controllers/products.controllers');
-// const productsServices = require('../../../src/services/products.service');
-// const { All } = require('../models/mockProducts');
-
-// describe('Teste camada controller', async function () {
-//  it('listando produtos', async function () {
-//     const res = {};
-//     // res.status = sinon.stub().returns(res);
-//     res.json = sinon.stub().returns();
-//       await productControllers.findAll();
-//   });
-// });
 
 describe('Teste camada controller', async function () {
   it('testa busca por id do produto', async () => {

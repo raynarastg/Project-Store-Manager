@@ -7,6 +7,7 @@ const findAll = async () => {
   }
   return { error: 404, message: 'Product not found' };
 };
+
 const findById = async (id) => {
   const productId = await productsModel.findById(id);
   if (productId) return { value: 200, message: productId };
@@ -20,7 +21,6 @@ const insertProduct = async (name) => {
   if (name.length < 5) {
     return { error: { type: 422, message: '"name" length must be at least 5 characters long' } };
   }
-
   const newProductId = await productsModel.insertProduct(name);
   return newProductId;
 };
@@ -50,9 +50,7 @@ const updateProduct = async (id, name) => {
   if (name.length < 5) {
    return { value: 422, message: { message: '"name" length must be at least 5 characters long' } };
   }
-
   const productUpdate = await productsModel.updateProduct(id, name);
-  console.log(productUpdate);
   if (productUpdate) return { value: 200, message: productUpdate };
 };
 

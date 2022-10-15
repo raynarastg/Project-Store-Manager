@@ -42,6 +42,7 @@ const findSalesById = async (req, res) => {
   }
   return res.status(saleId.value).json(saleId.message);
 };
+
 const updateProduct = async (req, res) => {
   const { id } = req.params;
   const { name } = req.body;
