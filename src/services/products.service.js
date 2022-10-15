@@ -7,7 +7,6 @@ const findAll = async () => {
   }
   return { error: 404, message: 'Product not found' };
 };
-
 const findById = async (id) => {
   const productId = await productsModel.findById(id);
   if (productId) return { value: 200, message: productId };
@@ -56,6 +55,7 @@ const updateProduct = async (id, name) => {
   console.log(productUpdate);
   if (productUpdate) return { value: 200, message: productUpdate };
 };
+
 module.exports = {
   findAll,
   findById,
