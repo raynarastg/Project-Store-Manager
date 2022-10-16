@@ -57,6 +57,13 @@ const deleteProduct = async (req, res) => {
   res.status(value).json(message);
 };
 
+const deleteSales = async (req, res) => {
+  const { id } = req.params;
+  const { value, message } = await services.deleteSales(Number(id));
+  if (!message) return res.status(value).end();
+  res.status(value).json(message);
+};
+
 module.exports = {
   findAll,
   findById,
@@ -65,4 +72,5 @@ module.exports = {
   findSalesById,
   updateProduct,
   deleteProduct,
+  deleteSales,
 };

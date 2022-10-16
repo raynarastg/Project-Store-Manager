@@ -62,6 +62,14 @@ const deleteProduct = async (id) => {
   return { value: 204 };
 };
 
+const deleteSales = async (id) => {
+  const deleteSalesId = await productsModel.deleteSales(id);
+  if (deleteSalesId.affectedRows === 0) {
+     return { value: 404, message: { message: 'Sale not found' } };
+  }
+  return { value: 204 };
+};
+
 module.exports = {
   findAll,
   findById,
@@ -70,4 +78,5 @@ module.exports = {
   findSalesById,
   updateProduct,
   deleteProduct,
+  deleteSales,
 };
