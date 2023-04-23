@@ -22,15 +22,6 @@ Neste projeto foi aplicado os seguintes conceitos:
 
 </details>
 
-<details>
-  <summary><strong>🎲 Diagrama ER, Entidades e Scripts</strong></summary>
-
-#### Diagrama de Entidade-Relacionamento
-
-![DER](./public/erStoreManager.png)
-
-</ details>
-
 ## Clone o projeto
 
 - Use o comando: `git clone git@github.com:raynarastg/Project-Store-Manager.git`.
