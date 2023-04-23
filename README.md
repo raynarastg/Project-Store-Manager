@@ -1,10 +1,38 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+# Store Manager
+
+<details>
+  <summary><strong>👨‍💻 O que foi desenvolvido nesse projeto</strong></summary><br />
+
+Nesse projeto foi desenvolvido uma API utilizando a arquitetura MSC (model-service-controller)
+A API construída é um sistema de gerenciamento de vendas no formato dropshipping em que é possível criar, visualizar, deletar e atualizar produtos e vendas. Foi utilizado o banco de dados MySQL para a gestão de dados. Além disso, a API é RESTful.
+
+</details>
+
+<details>
+  <summary><strong>💫 Habilidades</strong></summary><br />
+
+Neste projeto foi aplicado os seguintes conceitos:
+
+- Aderência do código à especificação.
+
+- Back-end seguindo o padrão arquitetural MSC;
+
+- Aderência ao padrão REST.
+
+
+</details>
+
+<details>
+  <summary><strong>🎲 Diagrama ER, Entidades e Scripts</strong></summary>
+
+#### Diagrama de Entidade-Relacionamento
+
+![DER](./public/erStoreManager.png)
+
+</ details>
+
+## Clone o projeto
+
+- Use o comando: `git clone git@github.com:raynarastg/Project-Store-Manager.git`.
+- Entre na pasta do repositório que você acabou de clonar:
+  - `cd Project-Store-Manager`
